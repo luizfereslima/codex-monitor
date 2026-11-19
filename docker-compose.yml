@@ -1,0 +1,9 @@
+services:
+  codex-monitor:
+    build: .
+    container_name: codex-monitor
+    restart: unless-stopped
+    ports:
+      - "5055:5055"
+    volumes:
+      - ~/.codex/sessions:/root/.codex/sessions:ro

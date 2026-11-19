@@ -1,0 +1,7 @@
+#!/bin/sh
+set -eu
+PROJECT_DIR='/Users/luizfelipelima/CriaCode/codex-monitor'
+export PATH="/opt/homebrew/bin:/usr/local/bin:$PATH"
+if ! "$PROJECT_DIR/iniciar-monitor.command" >/tmp/codex-monitor-launch.log 2>&1; then
+  /usr/bin/osascript -e 'display alert "Codex Pulse" message "Falha ao iniciar. Consulte /tmp/codex-monitor-launch.log" as critical'
+fi
